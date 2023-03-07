@@ -1,0 +1,15 @@
+.Breadcrumb {
+  color: #666666;
+  font-size: 14px;
+  display: flex;
+
+  .category {
+    cursor: pointer;
+  }
+
+  .category:not(:last-child)::after {
+    content: ">";
+    cursor: auto;
+    margin: 0 4px;
+  }
+}

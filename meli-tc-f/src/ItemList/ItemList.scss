@@ -1,0 +1,14 @@
+.ItemList {
+  padding: 0 16px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+
+  ul {
+    list-style: none;
+
+    li + li {
+      border-top: solid 1px #eeeeee;
+    }
+  }
+}
