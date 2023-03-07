@@ -1,0 +1,50 @@
+.ItemCard {
+  display: flex;
+  margin: 16px 0;
+
+  .thumbnail {
+    height: 180px;
+    border-radius: 4px;
+    margin: auto;
+  }
+}
+
+.ItemDetails {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  h3,
+  h4,
+  h6 {
+    margin: 16px 0;
+  }
+
+  .groupedAttributes {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
+
+    .price {
+      display: flex;
+      align-items: center;
+
+      .deliveryTruck {
+        height: 12px;
+        background-color: #78f978;
+        border-radius: 100%;
+        padding: 4px;
+        color: white;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.thumbnail,
+.price,
+.title {
+  cursor: pointer;
+}

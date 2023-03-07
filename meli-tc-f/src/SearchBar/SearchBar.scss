@@ -1,0 +1,35 @@
+.SearchBar {
+  background-color: #ffe600;
+
+  .Logo {
+    height: 36px;
+    margin-right: 16px;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+  }
+}
+
+.InputField {
+  height: 40px;
+  font-size: 16px;
+  flex-grow: 2;
+  border: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  padding-left: 16px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+}
+
+.MagnifyingGlass {
+  width: 42px;
+  border: none;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background: url(https://pic.onlinewebfonts.com/svg/img_143015.png) center
+    no-repeat;
+  background-size: 17px;
+  background-color: #eeeeee;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+  cursor: pointer;
+}
