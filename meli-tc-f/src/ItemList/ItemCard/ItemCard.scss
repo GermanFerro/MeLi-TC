@@ -7,6 +7,12 @@
     border-radius: 4px;
     margin: auto;
   }
+
+  .thumbnail,
+  .price,
+  .title {
+    cursor: pointer;
+  }
 }
 
 .ItemDetails {
@@ -41,10 +47,4 @@
       }
     }
   }
-}
-
-.thumbnail,
-.price,
-.title {
-  cursor: pointer;
 }
