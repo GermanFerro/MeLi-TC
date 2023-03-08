@@ -1,10 +1,10 @@
 const express = require("express");
 
-const itemController = require("../controllers/item");
+const { getItems, getItemDetails } = require("../controllers/item");
 
 const router = express.Router();
 
-router.get("/", itemController.getItems);
-router.get("/:id", itemController.getItemDetails);
+router.get("/", getItems);
+router.get("/:id", getItemDetails);
 
 module.exports = router;
