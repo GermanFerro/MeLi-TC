@@ -18,26 +18,11 @@ const mapItem = (item: ItemDetails) => ({
 });
 
 async function getItemDetails(itemId: string) {
-  const itemResponse = await fetch(
-    `https://api.mercadolibre.com/items/${itemId}`
-  );
-  const itemDescription = await fetch(
-    `https://api.mercadolibre.com/items/${itemId}/description`
-  );
-  if (!itemResponse.ok || !itemDescription.ok) {
+  const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
+  if (!response.ok) {
     throw new Error("Error response");
   }
-  const item = await itemResponse.json();
-  const description = await itemDescription.json();
-  item.description = description;
-  const itemCategories = await fetch(
-    `https://api.mercadolibre.com/categories/${item.category_id}`
-  );
-  if (!itemCategories) {
-    throw new Error("Error response");
-  }
-  const categories = await itemCategories.json();
-  item.categories = categories.path_from_root.map((p: any) => p.name);
+  const item = await response.json();
   return mapItem(item);
 }
 

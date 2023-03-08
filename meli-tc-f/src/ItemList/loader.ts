@@ -19,17 +19,14 @@ const getQuerySettings = (query: string) => ({
 async function getItems(
   query: string
 ): Promise<{ items: ItemListNormal[]; categories: string[] }> {
-  const response = await fetch(
-    `https://api.mercadolibre.com/sites/MLA/search?q=${query}`
-  );
+  const response = await fetch(`http://localhost:8080/api/items?q=${query}`);
   if (!response.ok) {
     throw new Error("Error response");
   }
-  const { results, filters } = await response.json();
-  const categories = filters[0]?.values[0]?.path_from_root;
+  const { items, categories } = await response.json();
   return {
-    items: mapItems(results.slice(0, 4)),
-    categories: categories ? categories.map((c: any) => c.name) : [],
+    items: mapItems(items),
+    categories,
   };
 }
 
