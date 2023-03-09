@@ -1,17 +1,12 @@
 .ItemCard {
   display: flex;
   margin: 16px 0;
+  cursor: pointer;
 
   .thumbnail {
     height: 180px;
     border-radius: 4px;
     margin: auto;
-  }
-
-  .thumbnail,
-  .price,
-  .title {
-    cursor: pointer;
   }
 }
 
