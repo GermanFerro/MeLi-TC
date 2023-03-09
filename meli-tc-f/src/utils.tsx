@@ -7,3 +7,8 @@ export const withQueryProvider = (Component: ComponentType) => (props: any) =>
       <Component {...props} />
     </QueryClientProvider>
   );
+
+export const formatPrice = (price: number) =>
+  new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" })
+    .format(price)
+    .split(",");

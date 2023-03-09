@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import deliveryTruck from "../../assets/delivery-truck.png";
 import { ItemListNormal } from "../../types";
+import { formatPrice } from "../../utils";
 import "./ItemCard.scss";
 
 const ItemCard = ({
@@ -14,6 +15,8 @@ const ItemCard = ({
   const navigate = useNavigate();
 
   const goToItemPage = () => navigate(`/items/${id}`);
+
+  const [integer] = formatPrice(price);
 
   return (
     <div className="ItemCard">
@@ -29,7 +32,7 @@ const ItemCard = ({
         <div className="ItemDetails">
           <div className="groupedAttributes">
             <div className="price" onClick={goToItemPage}>
-              <h3 className="font-regular">$ {price}</h3>
+              <h3 className="font-regular">{integer}</h3>
               {freeShipping && (
                 <img className="deliveryTruck" src={deliveryTruck} alt="" />
               )}
