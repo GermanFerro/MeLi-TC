@@ -24,9 +24,9 @@
   .groupedAttributes {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    text-align: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: flex-start;
 
     .price {
       display: flex;
