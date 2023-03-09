@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import placeholder from "../assets/generic-placeholder.png";
-import { formatPrice } from "../utils";
+import { formatPrice } from "../common/utils";
 import "./ItemPage.scss";
 import { loader } from "./loader";
 

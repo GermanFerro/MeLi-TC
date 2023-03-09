@@ -1,5 +1,5 @@
 import { QueryClient } from "@tanstack/react-query";
-import { ItemDetails, ItemDetailsNormal } from "../types";
+import { ItemDetails, ItemDetailsNormal } from "../common/types";
 
 const getQuery = (itemId: string) => ({
   queryKey: ["item", itemId],

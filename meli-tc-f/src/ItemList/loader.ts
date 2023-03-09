@@ -1,5 +1,5 @@
 import { QueryClient } from "@tanstack/react-query";
-import { ItemList, ItemListNormal } from "../types";
+import { ItemList, ItemListNormal } from "../common/types";
 
 const mapItems = (items: ItemList[]) =>
   items.map((i) => ({

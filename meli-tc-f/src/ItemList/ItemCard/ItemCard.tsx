@@ -1,8 +1,8 @@
 import { KeyboardEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import deliveryTruck from "../../assets/delivery-truck.png";
-import { ItemListNormal } from "../../types";
-import { formatPrice } from "../../utils";
+import { ItemListNormal } from "../../common/types";
+import { formatPrice } from "../../common/utils";
 import "./ItemCard.scss";
 
 const ItemCard = ({
