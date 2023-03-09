@@ -27,6 +27,7 @@ const ItemCard = ({
         e.code === "Enter" && goToItemPage()
       }
       onClick={goToItemPage}
+      data-testid="ItemCard"
     >
       <div className="col-3">
         <img className="thumbnail" src={thumbnail} alt="item thumbnail" />
@@ -37,7 +38,11 @@ const ItemCard = ({
             <div className="price">
               <h3 className="font-regular">{integer}</h3>
               {freeShipping && (
-                <img className="deliveryTruck" src={deliveryTruck} alt="" />
+                <img
+                  className="deliveryTruck"
+                  src={deliveryTruck}
+                  alt="free shipping"
+                />
               )}
             </div>
             <h4 className="title font-regular">{title}</h4>
