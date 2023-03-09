@@ -5,7 +5,7 @@ import App from "./App";
 import ContentWrapper from "./ContentWrapper/ContentWrapper";
 import ItemList from "./ItemList/ItemList";
 import { loader as getItems } from "./ItemList/loader";
-import ProductPage from "./ItemPage/ItemPage";
+import ItemPage from "./ItemPage/ItemPage";
 import { loader as getItemDetails } from "./ItemPage/loader";
 
 const queryClient = new QueryClient();
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/items/:id",
-            element: <ProductPage />,
+            element: <ItemPage />,
             loader: getItemDetails(queryClient),
             id: "item",
           },

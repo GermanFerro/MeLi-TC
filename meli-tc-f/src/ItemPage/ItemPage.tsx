@@ -3,12 +3,12 @@ import placeholder from "../assets/generic-placeholder.png";
 import "./ItemPage.scss";
 import { loader } from "./loader";
 
-const ProductPage = () => {
+const ItemPage = () => {
   const { price, title, pictures, soldQuantity, condition, description } =
     useLoaderData() as Awaited<ReturnType<ReturnType<typeof loader>>>;
 
   return (
-    <div className="ProductPage">
+    <div className="ItemPage">
       <div className="firstRow">
         <div className="imageContainer">
           <img
@@ -18,10 +18,10 @@ const ProductPage = () => {
           />
         </div>
         <div className="ProductDetails left">
-          <h6 className="no-margin font-regular">
+          <span className="text-sm">
             {condition === "new" ? "Nuevo" : "Usado"} - {soldQuantity} vendidos
-          </h6>
-          <h3 className="name">{title}</h3>
+          </span>
+          <span className="name text-md">{title}</span>
           <h1 className="price font-regular">
             $ {price}
             <span>00</span>
@@ -39,4 +39,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ItemPage;
