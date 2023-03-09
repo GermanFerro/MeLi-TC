@@ -3,6 +3,7 @@ import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import "./ContentWrapper.scss";
 
 const SearchResults = () => {
+  //ToDo add types
   const listData = useRouteLoaderData("list") as any;
   const itemData = useRouteLoaderData("item") as any;
 

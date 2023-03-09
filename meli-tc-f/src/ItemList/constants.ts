@@ -46,4 +46,5 @@ export const mockedItemList = {
       address: "Capital Federal",
     },
   ],
+  categories: ["cat1", "cat2"],
 };

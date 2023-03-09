@@ -18,7 +18,7 @@ const SearchBar = () => {
         <div className="row">
           <div className="col-12">
             <Link to="/">
-              <img className="Logo" src={logo} alt="mercado libre logo" />
+              <img className="Logo" src={logo} alt="mercado libre home" />
             </Link>
             <input
               className="InputField"
