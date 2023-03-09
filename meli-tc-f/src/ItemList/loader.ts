@@ -7,7 +7,7 @@ const mapItems = (items: ItemList[]) =>
     title: i.title,
     price: i.price,
     thumbnail: i.thumbnail,
-    freeShipping: i.free_shipping,
+    freeShipping: i.shipping.free_shipping,
     address: i.address.state_name,
   }));
 

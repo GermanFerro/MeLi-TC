@@ -1,12 +1,15 @@
 .SearchBar {
   background-color: #ffe600;
 
-  .Logo {
-    height: 36px;
-    margin-right: 16px;
-    margin-top: auto;
-    margin-bottom: auto;
-    cursor: pointer;
+  a {
+    display: flex;
+    .Logo {
+      height: 42px;
+      margin-right: 16px;
+      margin-top: auto;
+      margin-bottom: auto;
+      cursor: pointer;
+    }
   }
 }
 
