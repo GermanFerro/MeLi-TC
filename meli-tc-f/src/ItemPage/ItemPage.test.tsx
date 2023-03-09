@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { withBrowserRouterMock } from "../common/utils";
+import { withRouterDataMock } from "../common/utils";
 import { mockedItem } from "./constants";
 import ItemPage from "./ItemPage";
 
-const ItemPageWithRouter = withBrowserRouterMock(mockedItem, ItemPage);
+const ItemPageWithRouter = withRouterDataMock(mockedItem, ItemPage);
 
 describe("ItemPage", () => {
   it("renders initial conditions", () => {

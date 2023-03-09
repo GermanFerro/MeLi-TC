@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { withBrowserRouterMock } from "../common/utils";
+import { withRouterDataMock } from "../common/utils";
 import { mockedItemList } from "./constants";
 import ItemList from "./ItemList";
 
@@ -10,7 +10,7 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedNavigate,
 }));
 
-const ItemListWithRouter = withBrowserRouterMock(mockedItemList, ItemList);
+const ItemListWithRouter = withRouterDataMock(mockedItemList, ItemList);
 
 describe("ItemList", () => {
   it("renders initial conditions", () => {

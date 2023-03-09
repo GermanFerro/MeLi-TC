@@ -7,4 +7,5 @@ export const mockedItem = {
   soldQuantity: 500,
   condition: "new",
   description: "Test description",
+  categories: ["cat3", "cat4"],
 };

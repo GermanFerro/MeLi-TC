@@ -1,6 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ComponentType } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouteObject,
+  RouterProvider,
+} from "react-router-dom";
 
 export const withQueryProvider = (Component: ComponentType) => (props: any) =>
   (
@@ -14,10 +18,7 @@ export const formatPrice = (price: number) =>
     .format(price)
     .split(",");
 
-export const withBrowserRouterMock = (
-  dataMock: any,
-  Element: ComponentType
-) => {
+export const withRouterDataMock = (dataMock: any, Element: ComponentType) => {
   const router = createBrowserRouter([
     {
       path: "/",
@@ -25,6 +26,11 @@ export const withBrowserRouterMock = (
       loader: () => dataMock,
     },
   ]);
+
+  return () => <RouterProvider router={router} />;
+};
+export const withRouterMock = (routes: RouteObject[]) => {
+  const router = createBrowserRouter(routes);
 
   return () => <RouterProvider router={router} />;
 };
