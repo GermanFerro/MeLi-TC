@@ -1,11 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import placeholder from "../assets/generic-placeholder.png";
+import { formatPrice } from "../common/utils";
 import "./ItemPage.scss";
-import { loader } from "./loader";
+import { getItemType } from "./loader";
 
 const ItemPage = () => {
   const { price, title, pictures, soldQuantity, condition, description } =
-    useLoaderData() as Awaited<ReturnType<ReturnType<typeof loader>>>;
+    useLoaderData() as Awaited<ReturnType<getItemType>>;
+
+  const [integer, decimals] = formatPrice(price);
 
   return (
     <div className="ItemPage">
@@ -23,8 +26,8 @@ const ItemPage = () => {
           </span>
           <span className="name text-md">{title}</span>
           <h1 className="price font-regular">
-            $ {price}
-            <span>00</span>
+            {integer}
+            <span>{decimals}</span>
           </h1>
           <button className="buyBtn">Comprar</button>
         </div>

@@ -1,5 +1,6 @@
-import { QueryClient } from "@tanstack/react-query";
-import { ItemList, ItemListNormal } from "../types";
+import { LoaderFunctionArgs } from "react-router-dom";
+import { ItemList } from "../common/types";
+import { fetchWrapper } from "../common/utils";
 
 const mapItems = (items: ItemList[]) =>
   items.map((i) => ({
@@ -7,7 +8,7 @@ const mapItems = (items: ItemList[]) =>
     title: i.title,
     price: i.price,
     thumbnail: i.thumbnail,
-    freeShipping: i.free_shipping,
+    freeShipping: i.shipping.free_shipping,
     address: i.address.state_name,
   }));
 
@@ -16,30 +17,20 @@ const getQuerySettings = (query: string) => ({
   queryFn: async () => getItems(query),
 });
 
-async function getItems(
-  query: string
-): Promise<{ items: ItemListNormal[]; categories: string[] }> {
-  const response = await fetch(`http://localhost:8080/api/items?q=${query}`);
-  if (!response.ok) {
-    throw new Error("Error response");
-  }
-  const { items, categories } = await response.json();
+async function getItems(query: string) {
+  const { items, categories } = await fetchWrapper(
+    `http://localhost:8080/api/items?q=${query}`
+  );
   return {
     items: mapItems(items),
     categories,
   };
 }
 
-export const loader =
-  (queryClient: QueryClient) =>
-  async ({
-    request,
-  }: any): Promise<{ items: ItemListNormal[]; categories: string[] }> => {
-    const url = new URL(request.url);
-    const searchTerm = url.searchParams.get("q");
-    const query = getQuerySettings(searchTerm || "");
-    return (
-      queryClient.getQueryData(query.queryKey) ??
-      (await queryClient.fetchQuery(query))
-    );
-  };
+export type getItemsType = typeof getItems;
+
+export const getQuery = ({ request: { url } }: LoaderFunctionArgs) => {
+  const _url = new URL(url);
+  const searchTerm = _url.searchParams.get("q");
+  return getQuerySettings(searchTerm || "");
+};

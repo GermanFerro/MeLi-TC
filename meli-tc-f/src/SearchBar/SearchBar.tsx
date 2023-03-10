@@ -1,6 +1,6 @@
 import { KeyboardEvent, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/ml-hero-2.png";
+import logo from "../assets/ml-logo.svg";
 import "./SearchBar.scss";
 
 const SearchBar = () => {
@@ -18,12 +18,12 @@ const SearchBar = () => {
         <div className="row">
           <div className="col-12">
             <Link to="/">
-              <img className="Logo" src={logo} alt="mercado libre logo" />
+              <img className="Logo" src={logo} alt="mercado libre home" />
             </Link>
             <input
               className="InputField"
               type="text"
-              placeholder="Buscar productos, marcas y mas..."
+              placeholder="Buscar productos, marcas y más..."
               ref={inputRef}
               onKeyUp={(e: KeyboardEvent<HTMLInputElement>) =>
                 e.code === "Enter" && _handleSearchItems()

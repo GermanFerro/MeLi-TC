@@ -6,7 +6,7 @@ type ItemBase = {
 
 export type ItemList = ItemBase & {
   thumbnail: string;
-  free_shipping: Boolean;
+  shipping: { free_shipping: boolean };
   address: { state_name: string };
 };
 
@@ -20,7 +20,7 @@ export type ItemDetails = ItemBase & {
 
 export type ItemListNormal = ItemBase & {
   thumbnail: string;
-  freeShipping: Boolean;
+  freeShipping: boolean;
   address: string;
 };
 
@@ -29,5 +29,5 @@ export type ItemDetailsNormal = ItemBase & {
   soldQuantity: number;
   pictures: string[];
   description: string;
-  category: string;
+  categories: string[];
 };

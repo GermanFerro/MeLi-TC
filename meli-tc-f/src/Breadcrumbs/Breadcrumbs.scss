@@ -3,6 +3,10 @@
   font-size: 14px;
   display: flex;
 
+  &.separator {
+    height: 21px;
+  }
+
   .category {
     cursor: pointer;
   }
