@@ -47,7 +47,7 @@ const ItemCard = ({
             </div>
             <h4 className="title font-regular">{title}</h4>
           </div>
-          <h6 className="font-light text-xs">{address}</h6>
+          <h6 className="address font-light text-xs">{address}</h6>
         </div>
       </div>
     </div>

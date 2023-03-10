@@ -5,7 +5,6 @@ import { getItemType } from "../ItemPage/loader";
 import "./ContentWrapper.scss";
 
 const SearchResults = () => {
-  //ToDo add types
   const listData = useRouteLoaderData("list") as Awaited<
     ReturnType<getItemsType>
   >;
