@@ -30,7 +30,7 @@ exports.getItemDetails = (req, res) => {
       res.status(200).json(item);
     })
     .catch((error) => {
-      console.log(error);
-      res.status(500).send(error);
+      console.error(error);
+      res.status(error.statusCode ?? 500).send(error);
     });
 };

@@ -18,7 +18,7 @@ const queryClient = new QueryClient();
  * @param getQuery function to get query settings
  * @returns loader data
  */
-export const defaultLoader =
+const defaultLoader =
   (
     queryClient: QueryClient,
     getQuery: (args: LoaderFunctionArgs) => {
@@ -26,7 +26,7 @@ export const defaultLoader =
       queryFn: Awaited<Promise<any>>;
     }
   ) =>
-  async (args: any) => {
+  async (args: LoaderFunctionArgs) => {
     const query = getQuery(args);
     return (
       queryClient.getQueryData(query.queryKey) ??
