@@ -1,12 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import ItemCard from "./ItemCard/ItemCard";
 import "./ItemList.scss";
-import { loader } from "./loader";
+import { getItemsType } from "./loader";
 
 const ItemList = () => {
-  const { items } = useLoaderData() as Awaited<
-    ReturnType<ReturnType<typeof loader>>
-  >;
+  const { items } = useLoaderData() as Awaited<ReturnType<getItemsType>>;
 
   return (
     <>

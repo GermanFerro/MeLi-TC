@@ -6,6 +6,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+export const fetchWrapper = async (url: string) => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("Request error");
+  }
+  return await response.json();
+};
+
 export const withQueryProvider = (Component: ComponentType) => (props: any) =>
   (
     <QueryClientProvider client={new QueryClient()}>

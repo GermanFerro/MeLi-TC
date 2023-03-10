@@ -1,7 +1,8 @@
-import { QueryClient } from "@tanstack/react-query";
-import { ItemDetails, ItemDetailsNormal } from "../common/types";
+import { LoaderFunctionArgs } from "react-router-dom";
+import { ItemDetails } from "../common/types";
+import { fetchWrapper } from "../common/utils";
 
-const getQuery = (itemId: string) => ({
+const getQuerySettings = (itemId: string) => ({
   queryKey: ["item", itemId],
   queryFn: async () => getItem(itemId),
 });
@@ -18,20 +19,11 @@ const mapItem = (item: ItemDetails) => ({
 });
 
 async function getItem(itemId: string) {
-  const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
-  if (!response.ok) {
-    throw new Error("Error response");
-  }
-  const item = await response.json();
+  const item = await fetchWrapper(`http://localhost:8080/api/items/${itemId}`);
   return mapItem(item);
 }
 
-export const loader =
-  (queryClient: QueryClient) =>
-  async ({ params: { id } }: any): Promise<ItemDetailsNormal> => {
-    const query = getQuery(id);
-    return (
-      queryClient.getQueryData(query.queryKey) ??
-      (await queryClient.fetchQuery(query))
-    );
-  };
+export type getItemType = typeof getItem;
+
+export const getQuery = ({ params: { id } }: LoaderFunctionArgs) =>
+  getQuerySettings(id ?? "");
