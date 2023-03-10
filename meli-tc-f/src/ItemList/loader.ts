@@ -16,9 +16,7 @@ const getQuerySettings = (query: string) => ({
   queryFn: async () => getItems(query),
 });
 
-async function getItems(
-  query: string
-): Promise<{ items: ItemListNormal[]; categories: string[] }> {
+async function getItems(query: string) {
   const response = await fetch(`http://localhost:8080/api/items?q=${query}`);
   if (!response.ok) {
     throw new Error("Error response");

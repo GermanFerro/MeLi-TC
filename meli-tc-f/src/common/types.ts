@@ -29,5 +29,5 @@ export type ItemDetailsNormal = ItemBase & {
   soldQuantity: number;
   pictures: string[];
   description: string;
-  category: string;
+  categories: string[];
 };

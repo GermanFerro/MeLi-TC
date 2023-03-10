@@ -13,6 +13,7 @@ export const withQueryProvider = (Component: ComponentType) => (props: any) =>
     </QueryClientProvider>
   );
 
+// $ 200.000,99
 export const formatPrice = (price: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" })
     .format(price)
@@ -29,6 +30,7 @@ export const withRouterDataMock = (dataMock: any, Element: ComponentType) => {
 
   return () => <RouterProvider router={router} />;
 };
+
 export const withRouterMock = (routes: RouteObject[]) => {
   const router = createBrowserRouter(routes);
 

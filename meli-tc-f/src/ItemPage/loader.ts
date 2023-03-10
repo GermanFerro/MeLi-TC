@@ -3,7 +3,7 @@ import { ItemDetails, ItemDetailsNormal } from "../common/types";
 
 const getQuery = (itemId: string) => ({
   queryKey: ["item", itemId],
-  queryFn: async () => getItemDetails(itemId),
+  queryFn: async () => getItem(itemId),
 });
 
 const mapItem = (item: ItemDetails) => ({
@@ -17,7 +17,7 @@ const mapItem = (item: ItemDetails) => ({
   categories: item.categories,
 });
 
-async function getItemDetails(itemId: string) {
+async function getItem(itemId: string) {
   const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
   if (!response.ok) {
     throw new Error("Error response");

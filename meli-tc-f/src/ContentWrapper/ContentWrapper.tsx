@@ -1,11 +1,17 @@
 import { Outlet, useRouteLoaderData } from "react-router-dom";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import { loader as listLoader } from "../ItemList/loader";
+import { loader as pageLoader } from "../ItemPage/loader";
 import "./ContentWrapper.scss";
 
 const SearchResults = () => {
   //ToDo add types
-  const listData = useRouteLoaderData("list") as any;
-  const itemData = useRouteLoaderData("item") as any;
+  const listData = useRouteLoaderData("list") as Awaited<
+    ReturnType<ReturnType<typeof listLoader>>
+  >;
+  const itemData = useRouteLoaderData("item") as Awaited<
+    ReturnType<ReturnType<typeof pageLoader>>
+  >;
 
   return (
     <>
